@@ -1,0 +1,149 @@
+@import "../../sass/variables";
+@import "../../sass/mixins";
+@import "../../sass/custom";
+
+// $bg: rgba(13, 17, 21, 0.975);
+$bg: var(--bg1100);
+$accent: var(--accent);
+$hoverAccent: rgba(95, 23, 230, 0.2);
+
+:root {
+	--width: 4rem;
+	--height: 2.4rem;
+	--marginTop: calc(2.5rem / 2) - calc(4rem / 2);
+	--stripe: var(--accent);
+}
+
+/**
+* The actual thumb button to drag (eg. the fader)
+*
+*/
+@mixin thumb() {
+	-webkit-appearance: none;
+	appearance: none;
+	width: 20px;
+	height: 40px;
+	border-radius: 5px;
+	margin-top: -1.73rem;
+	border: 1px solid #000;
+	background-image: linear-gradient(
+		90deg,
+		$bg 25%,
+		$bg 44%,
+		var(--stripe) 20%,
+		var(--stripe) 24%,
+		var(--stripe) 26%,
+		$bg 65%,
+		$bg 70%
+	);
+	@include flex_row(center, center);
+	box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.75);
+
+	&:hover {
+		cursor: pointer;
+		box-shadow: 0px 0px 20px 3px $hoverAccent;
+	}
+}
+
+@mixin track() {
+	-webkit-appearance: none;
+	width: 100%;
+	height: 100%;
+	background-color: black;
+	border-radius: 5rem;
+	border: 1px solid var(--main-bg);
+}
+
+.Fader {
+	width: 6rem;
+	height: fit-content;
+	border-radius: 0.5rem;
+	@include flex_col(flex-start, flex-start);
+
+	&_top {
+		width: 100%;
+		height: 5rem;
+		text-align: center;
+
+		&_label {
+			font-size: 1.6rem;
+			font-weight: 600;
+			color: var(--text-color);
+		}
+		&_value {
+			color: var(--text-color);
+			margin-top: 0.5rem;
+		}
+	}
+	&_main {
+		position: relative;
+		width: 100%;
+		height: 100%;
+		min-height: 15rem;
+		@include flex_row(center, center);
+		z-index: 10;
+
+		&_input {
+			transform: rotateZ(270deg);
+			-webkit-appearance: none;
+			width: 100%;
+			min-width: 18rem;
+			max-width: 100%;
+			height: 0.65rem;
+			border-radius: 5rem;
+
+			// Webkit (eg. Chrome, Safari, Opera) styles
+			&::-webkit-slider-thumb {
+				appearance: none;
+				-webkit-appearance: none;
+				// position: relative;
+				z-index: 10;
+				@include thumb();
+			}
+			// Webkit (eg. Chrome, Safari, Opera) styles
+			&::-webkit-slider-runnable-track {
+				@include track();
+			}
+			// Firefox styles
+			&::-moz-range-thumb {
+				@include thumb();
+			}
+			// Firefox styles
+			&::-moz-range-track {
+				@include track();
+			}
+
+			&:hover {
+				cursor: pointer;
+			}
+		}
+		&_tick {
+			position: absolute;
+			top: 0;
+			left: 1rem;
+
+			&:nth-child(2n) {
+				margin-top: 0.2rem;
+			}
+		}
+	}
+}
+
+$tickSize: 6px;
+
+.Ticks {
+	position: absolute;
+	width: 10px;
+	height: 100%;
+	min-height: 18rem;
+	@include flex_col(space-evenly, flex-start);
+	gap: 0.2rem 0;
+	margin-left: -0.3rem;
+	margin-top: -1rem;
+
+	&_tickMark {
+		border-bottom: 1px solid rgb(30, 41, 59);
+		width: 13px;
+		height: 100%;
+	}
+}

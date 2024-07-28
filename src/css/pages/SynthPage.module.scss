@@ -1,0 +1,36 @@
+@import "../../sass/variables";
+@import "../../sass/mixins";
+@import "../../sass/custom";
+
+$padding: 4%;
+
+.SynthPage {
+	width: 100%;
+	height: auto;
+	padding: $padding;
+
+	&_header {
+		width: 100%;
+
+		& h1 {
+			font-size: 5rem;
+			color: var(--blueGrey200);
+		}
+	}
+}
+
+@media only screen and (max-width: 600px) {
+	.SynthPage {
+		width: 100%;
+		height: auto;
+		padding: $padding calc($padding - 2%);
+
+		&_header {
+			width: 100%;
+			height: 10rem;
+			& h1 {
+				font-size: 4rem;
+			}
+		}
+	}
+}

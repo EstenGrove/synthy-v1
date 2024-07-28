@@ -1,0 +1,70 @@
+@import "../../sass/variables";
+@import "../../sass/mixins";
+@import "../../sass/custom";
+
+.OctaveSelector {
+	width: auto;
+	height: auto;
+
+	&_main {
+		width: 100%;
+		height: 100%;
+		@include flex_row(flex-start, flex-start);
+		gap: 0 0.5rem;
+
+		&_current {
+			width: 10rem;
+			height: 2.5rem;
+			padding: 0.1rem 0.5rem;
+			font-size: 1.3rem;
+			border-radius: 0.3rem;
+			border: 1px solid var(--border);
+			text-align: center;
+			margin: auto 0;
+		}
+	}
+}
+
+.PrevButton {
+	width: 2rem;
+	height: 2.5rem;
+	// padding: 0.5rem 0.5rem;
+	border-radius: 0.3rem;
+	border: none;
+	outline: none;
+	@include flex_row(center, center);
+	background-color: transparent;
+	border: 1px solid var(--border);
+	&:hover {
+		cursor: pointer;
+	}
+
+	&_icon {
+		width: 2rem;
+		height: 2rem;
+		min-width: 2rem;
+		min-height: 2rem;
+		fill: #fff;
+	}
+}
+.NextButton {
+	width: 2rem;
+	height: 2.5rem;
+	border-radius: 0.3rem;
+	border: none;
+	outline: none;
+	@include flex_row(center, center);
+	background-color: transparent;
+	border: 1px solid var(--border);
+	&:hover {
+		cursor: pointer;
+	}
+
+	&_icon {
+		width: 2rem;
+		height: 2rem;
+		min-width: 2rem;
+		min-height: 2rem;
+		fill: #fff;
+	}
+}
