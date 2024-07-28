@@ -22,6 +22,13 @@ export interface CRange {
 	min: number;
 	max: number;
 }
+// Checks if a number is between a given range
+const isBetween = (value: number, range: CRange): boolean => {
+	const { min, max } = range;
+	const isInRange = value >= min && value <= max;
+
+	return isInRange;
+};
 // Accepts a value & a range & insures the value is within the range
 // will return max if value is greater will return min if value is less than
 const clamp = (val: number, range: CRange) => {
@@ -46,12 +53,31 @@ const groupBy = <T, K extends string | number>(
 	}, {} as Record<keyof T, T[]>);
 };
 
+export type TCallback = (params?: unknown) => void;
+
+// debounce a fn call for 'wait' time
+const debounce = <T extends (...args: unknown[]) => void>(
+	callback: T,
+	wait: number = 100
+) => {
+	let timerID: ReturnType<typeof setTimeout>;
+
+	return (...args: Parameters<typeof callback>) => {
+		clearTimeout(timerID);
+		timerID = setTimeout(() => {
+			callback(...args);
+		}, wait);
+	};
+};
+
 export {
 	// empty checkers
 	isEmptyObj,
 	isEmptyStr,
 	// data utils
 	range,
+	debounce,
 	clamp,
+	isBetween,
 	groupBy,
 };

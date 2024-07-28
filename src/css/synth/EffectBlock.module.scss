@@ -1,0 +1,29 @@
+@import "../../sass/variables";
+@import "../../sass/mixins";
+@import "../../sass/custom";
+
+.EffectBlock {
+	width: 20rem;
+	height: var(--synthyFXHeight);
+	padding: var(--synthyFXPadding);
+	padding-top: 2.5rem;
+	border-radius: 1rem;
+	border-color: var(--synthyBorder);
+
+	& legend {
+		text-align: center;
+		font-size: 1.8rem;
+		color: var(--synthyFXLabel);
+		padding: 0 1rem;
+	}
+
+	&_main {
+		@include fill_container;
+		padding-top: 0.5rem;
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		grid-template-rows: repeat(3, 1fr);
+		place-items: center;
+		gap: 2rem 2rem;
+	}
+}
