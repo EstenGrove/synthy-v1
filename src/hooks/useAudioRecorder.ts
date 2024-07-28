@@ -8,7 +8,7 @@ import { useState, useRef } from "react";
 // - Otherwise should prolly use "audio/ogg; codec=opus" OR "audio/wav"
 const AUDIO_TYPE = "audio/webm";
 
-type TAudioType =
+export type TAudioType =
 	| "audio/webm"
 	| "audio/ogg; codec=opus"
 	| "audio/mpeg"

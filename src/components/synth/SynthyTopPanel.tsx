@@ -5,7 +5,7 @@ import ScalesPicker from "../controls/ScalesPicker";
 import CustomSelect from "../shared/CustomSelect";
 // keys, notes & scales
 import { SCALES_MAP as scalesMap } from "../../data/notes/synthNotes";
-import { IScalesMap } from "../../scales/allScales";
+import { IScalesMap } from "../../data/scales/scales";
 import { useMemo } from "react";
 
 const customCSS = {

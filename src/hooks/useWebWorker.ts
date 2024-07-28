@@ -8,9 +8,9 @@ const prepareUrl = (path: string): URL => {
 };
 
 const createWorker = (filePath: string, isModule: boolean = false) => {
-	// For ertain bundlers (webpack/rollup/parcel) we need to apply some path resolution changes to our worker's filepath:
+	// For certain bundlers (vite/webpack/rollup/parcel) we need to apply some path resolution changes to our worker's filepath:
 	// - eg "/src" directory for DEV builds & "/dist" directory for PROD builds
-	// - We also want to apply the 'module' flag to the file when using certain bundlers
+	// - We also may want to apply the 'module' flag to the file when using certain bundlers
 	if (isModule) {
 		return new Worker(prepareUrl(filePath), {
 			type: "module",

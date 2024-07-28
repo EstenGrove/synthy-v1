@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { useAudioRecorder } from "./useAudioRecorder";
+import { TAudioType, useAudioRecorder } from "./useAudioRecorder";
 import { queryNavigatorPermissions } from "../utils/utils_audio";
 
 // webm, wav, mp3 etc
@@ -8,7 +8,7 @@ import { queryNavigatorPermissions } from "../utils/utils_audio";
 type TRecordingState = "inactive" | "recording" | "paused";
 
 type HookProps = {
-	audioType?: string;
+	audioType?: TAudioType;
 	onFinished?: (blob: Blob) => void;
 };
 
@@ -32,12 +32,13 @@ const useVoiceRecorder = ({
 	const [hasPermission, setHasPermission] = useState<boolean>(false);
 	// audio recorder hook; handles all the actual recording process
 	const audioRecorder = useAudioRecorder({
-		audioType: audioType as string,
+		audioType: audioType as TAudioType,
 		onFinished: (blob: Blob) => {
 			// audioBlob.current = blob;
 			setAudioBlob(blob);
 
-			// if we have a handler, call it
+			// if we have a handler from our parent caller..
+			// ..call it & pass the final blob
 			if (onFinished) {
 				onFinished(blob);
 			}
@@ -112,14 +113,14 @@ const useVoiceRecorder = ({
 		if (hasPermission) {
 			audioRecorder.pause();
 		} else {
-			alert("Need permission to stop a recording!");
+			alert("Need permission to pause a recording!");
 		}
 	};
 	const resumeRecording = () => {
 		if (hasPermission) {
 			audioRecorder.resume();
 		} else {
-			alert("Need permission to stop a recording!");
+			alert("Need permission to resume a recording!");
 		}
 	};
 
