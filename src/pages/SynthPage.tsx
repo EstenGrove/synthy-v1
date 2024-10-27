@@ -1,5 +1,5 @@
 import styles from "../css/pages/SynthPage.module.scss";
-import Synth from "../components/synth/Synth";
+import Synthy from "../components/synth/Synthy";
 
 const SynthPage = () => {
 	return (
@@ -8,7 +8,7 @@ const SynthPage = () => {
 				<h1>Web Audio Synth</h1>
 			</header>
 			<main className={styles.SynthPage_main}>
-				<Synth />
+				<Synthy />
 			</main>
 		</div>
 	);

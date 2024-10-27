@@ -85,7 +85,7 @@ $arrowSize: 2.5rem;
 	border: 1px solid var(--border);
 	background-color: #000;
 	z-index: 1000;
-	@include fadeInHeight(20rem);
+	// @include fadeInHeight(20rem);
 	box-shadow: 4px 4px 17px 0px var(--synthyFXShadow);
 
 	&_list {

@@ -67,7 +67,7 @@
 	width: 3rem;
 	height: 3rem;
 	padding: 1px 1px;
-	// @include flex_row(center, center);
+	@include flex_row(center, center);
 	@include flex_row(center, center);
 	color: var(--border);
 	&:hover {

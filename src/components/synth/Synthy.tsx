@@ -65,6 +65,7 @@ const Synthy = ({ presets = basePresets }: Props) => {
 			console.log("audioBlob", audioBlob);
 		},
 	});
+	// the stream node that we connect the osc(s) to for recording
 	const audioDestNode = useRef<MediaStreamAudioDestinationNode>();
 	const [isPlaying, setIsPlaying] = useState<boolean>(false);
 	// top panel settings

@@ -274,8 +274,6 @@ const Knob = ({
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
-	console.log("actualValue", actualValue);
-
 	return (
 		<div
 			className={styles.Knob}

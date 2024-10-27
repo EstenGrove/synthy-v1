@@ -1,0 +1,75 @@
+.pulse {
+	-webkit-animation: pulse 0.8s ease-in-out 3 backwards;
+	animation: pulse 0.8s ease-in-out 3 backwards;
+}
+
+@-webkit-keyframes pulse {
+	0% {
+		-webkit-transform: scale(0.2);
+		transform: scale(0.2);
+		opacity: 0.8;
+	}
+	80% {
+		-webkit-transform: scale(1.6);
+		transform: scale(1.6);
+		opacity: 0;
+	}
+	100% {
+		-webkit-transform: scale(2.2);
+		transform: scale(2.2);
+		opacity: 0;
+	}
+}
+@keyframes pulse {
+	0% {
+		-webkit-transform: scale(0.2);
+		transform: scale(0.2);
+		opacity: 0.8;
+	}
+	80% {
+		-webkit-transform: scale(2);
+		transform: scale(2);
+		opacity: 0;
+	}
+	100% {
+		-webkit-transform: scale(2.2);
+		transform: scale(2.2);
+		opacity: 0;
+	}
+}
+
+@mixin ping() {
+	@extend .pulse;
+}
+
+.fadeIn {
+	animation: fade-in 0.5s;
+}
+@keyframes fade-in {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 100%;
+	}
+}
+@mixin fadeIn() {
+	@extend .fadeIn;
+}
+
+.fadeInHeight {
+	animation: fade-in-height 0.5s;
+}
+@mixin fadeInHeight($height) {
+	@extend .fadeInHeight;
+	@keyframes fade-in-height {
+		from {
+			opacity: 0;
+			height: 0;
+		}
+		to {
+			opacity: 100%;
+			height: $height;
+		}
+	}
+}

@@ -47,7 +47,7 @@ $menuHeight: 12rem;
 	border: 1px solid var(--border);
 	background-color: #000;
 	z-index: 1000;
-	@include fadeInHeight($menuHeight);
+	// @include fadeInHeight($menuHeight);
 	box-shadow: 4px 4px 17px 0px var(--synthyFXShadow);
 
 	&_list {
