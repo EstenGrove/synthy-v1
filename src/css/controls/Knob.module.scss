@@ -1,0 +1,73 @@
+@import "../../sass/variables";
+@import "../../sass/mixins";
+@import "../../sass/custom";
+
+.Knob {
+	position: relative;
+	width: fit-content;
+	height: fit-content;
+	border-radius: 50%;
+	@include flex_col(center, center);
+	user-select: none;
+
+	&_wrapper {
+		border-radius: 50%;
+	}
+}
+
+.KnobDial {
+	position: relative;
+	width: 15rem;
+	height: 15rem;
+	min-width: 15rem;
+	min-height: 15rem;
+	border-radius: 50%;
+	background-color: var(--synthyKnobColor);
+	border: 1px solid var(--synthyKnobBorder);
+	&:hover {
+		cursor: pointer;
+	}
+
+	&_handle {
+		width: 2.2px;
+		min-width: 2.2px;
+		max-width: 2.2px;
+		border-radius: 3rem;
+		height: 30%;
+		position: absolute;
+		top: 2px;
+		left: 50%;
+		transform: translateX(-50%);
+		background-color: #eaecef;
+	}
+}
+.Label {
+	font-size: 1.4rem;
+	margin-top: 0.5rem;
+	color: var(--text-color);
+	font-family: var(--choco-font);
+	@extend .fadeIn;
+	&:hover {
+		cursor: pointer;
+	}
+}
+.LabelValue {
+	font-size: 1.4rem;
+	margin-top: 0.5rem;
+	color: var(--text-color);
+	font-family: var(--choco-font);
+	// transition: all 0.3s ease-in-out;
+	@extend .fadeIn;
+}
+
+.fadeIn {
+	animation: fade-in 0.3s;
+}
+@keyframes fade-in {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 100%;
+	}
+}

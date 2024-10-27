@@ -1,0 +1,23 @@
+@import "../../sass/variables";
+@import "../../sass/mixins";
+@import "../../sass/custom";
+
+$accentColor: var(--border);
+
+.Synthy {
+	display: block;
+	max-width: 100%;
+	width: 119.1rem;
+	height: auto;
+	min-height: 55rem;
+	margin: 0 auto;
+	border-radius: 1rem;
+	border: 1px solid var(--border);
+}
+
+@media only screen and (max-width: 700px) {
+	.Synthy {
+		width: 100%;
+		max-width: 100%;
+	}
+}

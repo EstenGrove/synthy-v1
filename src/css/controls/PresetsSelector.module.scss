@@ -72,7 +72,7 @@
 	&_btn {
 		@include fill_container;
 		@include flex_row(center, center);
-		// @include flex_row(flex-start, center);
+		@include flex_row(flex-start, center);
 		padding-left: 1rem;
 		border-radius: 0.3rem;
 		border: none;

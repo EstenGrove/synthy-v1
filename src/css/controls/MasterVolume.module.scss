@@ -1,0 +1,27 @@
+@import "../../sass/variables";
+@import "../../sass/mixins";
+@import "../../sass/custom";
+
+.MasterVolume {
+	width: var(--synthyFXColumnWidth);
+	height: var(--synthyFXHeight);
+	padding: var(--synthyFXPadding);
+	border-color: var(--synthyBorder);
+	border-radius: 1rem;
+	@include flex_col(flex-start, center);
+	gap: 0 1rem;
+
+	& legend {
+		text-align: center;
+		font-size: 1.8rem;
+		border-color: var(--border);
+		color: var(--synthyFXLabel);
+		padding: 0 1rem;
+	}
+
+	&_main {
+		@include fill_container;
+		@include flex_col(flex-start, center);
+		margin-top: -1.85rem;
+	}
+}
